@@ -1,0 +1,113 @@
+# def solution(letter):
+#     answer = ""
+#     letter = letter.split()
+#
+#
+#     morse = {
+#         '.-':'a','-...':'b','-.-.':'c','-..':'d','.':'e','..-.':'f',
+#         '--.':'g','....':'h','..':'i','.---':'j','-.-':'k','.-..':'l',
+#         '--':'m','-.':'n','---':'o','.--.':'p','--.-':'q','.-.':'r',
+#         '...':'s','-':'t','..-':'u','...-':'v','.--':'w','-..-':'x',
+#         '-.--':'y','--..':'z'}
+#     for i in letter:
+#         answer += morse[i]
+#     return answer
+#
+# l1 = ".... . .-.. .-.. ---"
+# l2 = ".--. -.-- - .... --- -."
+
+
+
+#ox퀴즈
+# def solution(quiz):
+#     answer= []
+#     result = []
+#     #실행문
+#     for i in range(len(quiz)):
+#         answer = quiz[i].split()
+#         ox = ['X', "O"]
+#         if answer[1] == '-':
+#             answer[2] = -int(answer[2])
+#         if int(answer[0]) + int(answer[2]) == int(answer[4]):
+#             result.append('O')
+#         else:
+#             result.append('X')
+#     return result
+#
+#
+# q=["3 - 4 = -3", "5 + 6 = 11"]
+# print(solution(q))
+
+
+
+
+
+#분수의 덧셈
+# def solution(denum1, num1, denum2, num2):
+#
+#     while 1:
+#         if
+#
+#
+#
+#
+# denum1=1
+# num1=2
+# denum2=3
+# num2=4
+# print(solution(denum1, num1, denum2, num2))
+
+# def solution(denum1, num1, denum2, num2):
+#     rdnum = denum1 * num2 + denum2 * num1
+#     rnum = num1 * num2
+#     gcd=0
+#     for i in range(min(rdnum,rnum),1,-1):
+#         if rdnum % i ==0 and rnum % i ==0:
+#             gcd=i
+#             break
+#
+#
+#     if gcd !=0:
+#         rdnum //= gcd
+#         rnum//= gcd
+#
+#
+#     return[rdnum,rnum]
+# denum1, num1, denum2, num2=[1,2,3,4]
+# print(solution(denum1, num1, denum2, num2))]
+#
+#
+def solution(dartResult):
+    answer = 0
+    a=[]
+    i = 0
+    while i < len(dartResult):
+        if dartResult[i].isdigit():
+            if dartResult[i+1].isdigit():
+                a.append(10)
+                i = i+2
+            else:
+                a.append(int(dartResult[i]))
+                i = i+1
+        elif dartResult[i]=="S":
+            a[-1] = a[-1] ** 1
+            i+=1
+        elif dartResult[i]=="D":
+            a[-1] = a[-1] **2
+            i += 1
+        elif dartResult[i]=="T":
+            a[-1] = a[-1] **3
+            i += 1
+        elif dartResult[i]=="#":
+            a[-1] = a[-1] * (-1)
+            i += 1
+        elif dartResult[i]=="*":
+            if len(a) == 1:
+                a[-1] = a[-1] *2
+                i += 1
+            else:
+                a[-1] = a[-1] *2
+                a[-2] = a[-2] *2
+                i += 1
+
+    return sum(a)
